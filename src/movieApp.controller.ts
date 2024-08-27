@@ -38,7 +38,7 @@ export namespace MovieAppController {
         });
       } catch (error) {
         console.error('Error in login:', error);
-        response.status(400).json({ status: false, data: null, message: error });
+        next(error);
       }
     }
     public static logout = async (request: Request, response: Response, next: NextFunction): Promise<void> => {

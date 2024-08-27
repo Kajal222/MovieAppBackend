@@ -24,6 +24,7 @@ export namespace MovieAppApplication {
       MakeApplication.MovieApp.use(json());
       MakeApplication.MovieApp.use(urlencoded({ extended: true }));
       MakeApplication.MovieApp.use(cors());
+      MakeApplication.MovieApp.use('/poster', express.static(__dirname + '/../uploads'));
       MakeApplication.MovieApp.use("/user", UserRouter.default());
       MakeApplication.MovieApp.use("/movie", MovieRouter.default());
       MakeApplication.MovieApp.use(HandleError);

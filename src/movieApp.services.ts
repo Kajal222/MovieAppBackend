@@ -6,7 +6,7 @@ import { MovieAppHelper } from './movieApp.helper';
 import { ObjectId } from 'mongodb';
 // import { MovieAppModule } from './MovieApp.module';
 
-const { MessagesConfig: { Error: { EMAIL_EXISTS_ERR, UNAUTHRAIZED_USER } } } = MovieAppConfig;
+const { MessagesConfig: { Error: { EMAIL_EXISTS_ERR, UNAUTHRAIZED_USER, INCORRECT_PASSWORD } } } = MovieAppConfig;
 const { BaseHelper: { GenerateToken } } = MovieAppHelper;
 // const { AWSModule: { UploadOnS3 } } = MovieAppModule;
 
@@ -67,7 +67,7 @@ export namespace MovieAppService {
         // let userData = existingUserEmail?._doc
         let isCorrectPassword
         existingUserEmail?.password && (isCorrectPassword = await bcrypt.compare(password, existingUserEmail.password));
-        if (!isCorrectPassword) throw new Error(UNAUTHRAIZED_USER);
+        if (!isCorrectPassword) throw new Error(INCORRECT_PASSWORD);
         existingUserEmail.password = null;
 
         let token = GenerateToken(email);

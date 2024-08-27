@@ -36,7 +36,11 @@ export namespace MovieAppConfig {
             CONNECTION_ERR: "Error with database connection",
             CATCH_ERR: "Something Went Wrong.",
             EMAIL_EXISTS_ERR: "Email is already taken",
-            UNAUTHRAIZED_USER: 'unauthorized user'
+            UNAUTHRAIZED_USER: 'User not exist. Please register',
+            INCORRECT_PASSWORD: 'Incorrect password',
+            NO_TOKEN_ERR: 'No token provided',
+            PASS_TOKEN_INVD_ERR: 'Invalid token'
+            
         }
     }
 
